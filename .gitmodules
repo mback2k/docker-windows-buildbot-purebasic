@@ -1,0 +1,3 @@
+[submodule "purebasic"]
+	path = purebasic
+	url = https://github.com/mback2k/docker-purebasic-setup.git
