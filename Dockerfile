@@ -36,5 +36,5 @@ RUN C:\Temp\PureBasic_x64.exe /VERYSILENT
 
 SHELL ["powershell", "-command"]
 
-RUN Copy-Item 'C:\Program Files (x86)\Windows Kits\10\Lib\10.*\um\x64\*.lib' 'C:\Program Files\PureBasic\PureLibraries\Windows\Libraries'; `
-    Copy-Item 'C:\Program Files (x86)\Windows Kits\10\Lib\10.*\um\x86\*.lib' 'C:\Program Files (x86)\PureBasic\PureLibraries\Windows\Libraries';
+COPY --from=mback2k/windows-sdk:win10_1803 ["C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.17134.0\\um\\x64\\", "C:\\Program Files\\PureBasic\\PureLibraries\\Windows\\Libraries\\"]
+COPY --from=mback2k/windows-sdk:win10_1803 ["C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.17134.0\\um\\x86\\", "C:\\Program Files (x86)\\PureBasic\\PureLibraries\\Windows\\Libraries\\"]
