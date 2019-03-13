@@ -23,8 +23,8 @@ RUN Write-Host 'Updating INCLUDE ...'; `
 
 SHELL ["cmd.exe", "/s", "/c"]
 
-ARG PUREBASIC_X86="PureBasic_5_61_x86.exe"
-ARG PUREBASIC_X64="PureBasic_5_61_x64.exe"
+ARG PUREBASIC_X86="PureBasic_5_70_x86_LTS.exe"
+ARG PUREBASIC_X64="PureBasic_5_70_x64_LTS.exe"
 
 ADD purebasic/PureBasic.prefs C:\Users\ContainerAdministrator\AppData\Roaming\PureBasic\PureBasic.prefs
 
