@@ -4,8 +4,6 @@ ARG BASE_TAG=latest_1803
 
 FROM mback2k/windows-buildbot-tools:${BASE_TAG}
 
-SHELL ["powershell", "-command"]
-
 ARG PELLESC_SETUP="https://www.pellesc.de/download_start.php?file=900/setup.exe"
 
 RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
