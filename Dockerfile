@@ -1,7 +1,9 @@
 # escape=`
 
 ARG BASE_TAG=latest_1803
+ARG SDK_TAG=win10_1803
 
+FROM mback2k/windows-sdk:${SDK_TAG} as sdk
 FROM mback2k/windows-buildbot-tools:${BASE_TAG}
 
 ARG PELLESC_SETUP="https://www.pellesc.de/download_start.php?file=900/setup.exe"
@@ -38,5 +40,5 @@ RUN Write-Host 'Updating PATH ...'; `
     $env:PATH = 'C:\Program Files\PureBasic;' + $env:PATH; `
     [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine);
 
-COPY --from=mback2k/windows-sdk:win10_1803 ["C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.17134.0\\um\\x64\\", "C:\\Program Files\\PureBasic\\PureLibraries\\Windows\\Libraries\\"]
-COPY --from=mback2k/windows-sdk:win10_1803 ["C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.17134.0\\um\\x86\\", "C:\\Program Files (x86)\\PureBasic\\PureLibraries\\Windows\\Libraries\\"]
+COPY --from=sdk ["C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.17134.0\\um\\x64\\", "C:\\Program Files\\PureBasic\\PureLibraries\\Windows\\Libraries\\"]
+COPY --from=sdk ["C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.17134.0\\um\\x86\\", "C:\\Program Files (x86)\\PureBasic\\PureLibraries\\Windows\\Libraries\\"]
